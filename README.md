@@ -1,30 +1,30 @@
 # linux-note
 
-主要是紀錄一些 linux 的指令📝
+Principalement pour enregistrer quelques commandes linux📝
 
-( 本篇文章會持續更新:smile: )
+( Cet article sera mis à jour en permanence:smile: )
 
 ## cd
 
-切換到家目錄 `~`
+Passer au répertoire personnel `~`
 
 ```cmd
 cd ~
 ```
 
-切換到根目錄 `/`
+Passer au répertoire racine `/`
 
 ```cmd
 cd /
 ```
 
-回到上層目錄
+Retour au niveau supérieur
 
 ```cmd
 cd ..
 ```
 
-移動路徑到上一個所在的路徑 (可以快速切換兩個路徑, 很方便:smile:)
+Déplacez le chemin vers le précédent (il est facile de passer rapidement d'un chemin à l'autre :smile:)
 
 ```cmd
 cd -
@@ -32,7 +32,7 @@ cd -
 
 ## man
 
-線上說明手冊 ( man page )
+Manuel d'instruction en ligne ( man page )
 
 ```cmd
 man ls
@@ -40,7 +40,7 @@ man ls
 
 ![alt tag](https://i.imgur.com/3DDi208.png)
 
-也可以使用
+Vous pouvez également utiliser
 
 ```cmd
 ls --help
@@ -50,7 +50,7 @@ ls --help
 
 ## pwd
 
-查看目前的路徑
+Voir le repertoire actuel
 
 ```cmd
 pwd
@@ -60,133 +60,133 @@ pwd
 
 [Youtube Tutorial - Linux 指令教學 - ls](https://youtu.be/3Zy1AWuDUHE)
 
-列出檔案
+Liste des fichiers
 
 ```cmd
 ls -l
 ```
 
-`-l` 顯示詳細的資訊 ( 檔案權限 )。
+`-l` Afficher des informations détaillées ( Autorisations de fichiers )。
 
-也等於直接輸入 (L 的小寫)
+Cela équivaut également à un accès direct (L 的小寫)
 
 ```cmd
 ll
 ```
 
-在 Linux 中，檔案都擁有四種權限
+在 Linux 中，Les fichiers ont tous quatre permissions
 
-* 可讀取 ( r，Readable )，用數字 4 表示。
+* Lisible ( r，Readable )，Utilisez les chiffres 4
 
-* 可寫入 ( w，writable )，用數字 2 表示。
+* Modifiable ( w，writable )，Utilisez les chiffres 2
 
-* 可執行 ( x，eXecute )，用數字 1 表示。
+* Exécutable ( x，eXecute )，Utilisez les chiffres 1
 
-* 無權限 ( - )，用數字 0 表示。
+* Aucune permission ( - )，Utilisez les chiffres 0
 
-為了更清楚，我把它整理成表格:yum:
+Pour être plus claire，Je l'ai organisé en tableaux:yum:
 
-|     字元     | 權限分數 |
-|:------------:|:--------:|
-|   r (read)   |     4    |
-|   w (write)  |     2    |
-|  x (execute) |     1    |
-|    - 無權限  |     0    |
+|     Caractère         |  Marque  |
+|:---------------------:|:--------:|
+|   r (read)            |     4    |
+|   w (write)           |     2    |
+|  x (execute)          |     1    |
+|  - Aucune permission  |     0    |
 
-如下圖所示，
+Comme le montre l'image ci-dessous，
 
 ![alt tag](https://i.imgur.com/AzfYBhf.png)
 
-接著說明裡面每一欄的意思，
+Expliquez ensuite la signification de chaque colonne，
 
 ![alt tag](https://i.imgur.com/3TMcAtC.png)
 
-* 第一欄 ( 圖上編號 1 )，使用者權限。
+* Colonne 1 (n° 1 sur le schéma), Privilèges d'utilisateur.
 
-由 10 個字元組成，
+Constitué de 10 caractères.
 
-第一個字元代表檔案型態 (`-` 為檔案，`d` 為目錄，`l` 為連結檔案 )。
+Le premier caractère représente le type de fichier (`-` est le fichier, `d` est le répertoire, `l` est le fichier de liaison)。
 
-第二、三、四個字元 表示檔案擁有者的存取權限。
+Les deuxième, troisième et quatrième caractères indiquent les droits d'accès du propriétaire du fichier.。
 
-第五、六、七個字元 表示檔案擁有者所屬群組成員的存取權限。
+Les cinquième, sixième et septième caractères indiquent les droits d'accès des membres du groupe auquel appartient le propriétaire du fichier.。
 
-第八、九、十個字元 表示其他使用者的存取權限。
+Les huitième, neuvième et dixième caractères indiquent les droits d'accès pour les autres utilisateurs.。
 
-來看一個例子，drwxr-xr-x，
+Prenons un exemple，drwxr-xr-x，
 
-代表它是一個目錄，
+signifie qu'il s'agit d'un répertoire，
 
-擁有者具備讀、寫、執行權限，
+Les propriétaires ont des privilèges de lecture, d'écriture et d'exécution.，
 
-所屬群組只擁有讀、執行權限，
+Le groupe auquel vous appartenez n'a que des droits de lecture et d'exécution.，
 
-其他使用者只擁有讀、執行權限。
+Les autres utilisateurs n'ont que des droits de lecture et d'exécution.。
 
-為了更清楚，我把它整理成表格:yum:
+Pour plus de clarté, je l'ai organisé en un tableau:yum:
 
-|                |        擁有者        |      所屬群組      |     其他使用者     |
-|----------------|:--------------------:|:------------------:|:------------------:|
-|        d       |          rwx         |         r-x        |         r-x        |
-| 代表是一個目錄 | 具備讀、寫、執行權限 | 只擁有讀、執行權限 | 只擁有讀、執行權限 |
+|                |  Propriétaire         |Groupe d'appartenance| Autres utilisateurs     |
+|----------------|:---------------------:|:-------------------:|:-----------------------:|
+|        d       |           rwx         |         r-x         |         r-x             |
+| La représentation est un répertoire | Avec des privilèges de lecture, d'écriture et d'exécution | Privilèges de lecture et d'exécution uniquement | Privilèges de lecture et d'exécution uniquement |
 
-它的權限分數是 755
+Sa note d'autorité est de 755
 
-|  身份  	| 權限 	|   分數   	|
+|  Identité  	| Droits 	|   Note   	|
 |:------:	|:----:	|:--------:	|
 |  owner 	|  rwx 	| 4+2+1 =7 	|
 |  group 	|  r-x 	| 4+0+1 =5 	|
 | others 	|  r-x 	| 4+0+1 =5 	|
 
-* 第二欄 ( 圖上編號 2 )，檔案數量。
+* Colonne 2 (n° 2 sur le tableau), Nombre de dossiers。
 
-* 第三欄 ( 圖上編號 3 )，擁有者。
+* Colonne 3 (n° 3 sur le plan), propriétaire。
 
-* 第四欄 ( 圖上編號 4 )，群組。
+* Colonne 4 (n° 4 sur le tableau), Groupe。
 
-* 第五欄 ( 圖上編號 5 )，檔案大小。
+* Colonne 5 (n° 5 sur le tableau), taille du fichier。
 
-* 第六欄 ( 圖上編號 6 )，檔案建立時間。
+* Colonne 6 (n° 6 sur le schéma), heure de création du fichier。
 
-* 第七欄 ( 圖上編號 7 )，檔案名稱。
+* Colonne 7 (n° 7 sur le tableau), Nom du fichier。
 
-ls 使用時間排序
+ls Utiliser le triage par date
 
 ```cmd
 ls -t
 ```
 
-列出特定檔案 ( 列出為 .py 的檔案 )
+Liste de fichiers spécifiques (liste de fichiers .py)
 
 ```cmd
 ls *.py
 ```
 
-`-h` 參數，使用 KB、MB、GB 單位顯示檔案或目錄大小。
+Paramètre `-h` pour afficher la taille du fichier ou du répertoire en unités KB, MB, GB。
 
 ```cmd
 ls -l -h
 ```
 
-顯示全部的檔案 (包含隱藏檔)
+Afficher tous les fichiers (y compris les fichiers cachés)
 
 ```cmd
 ls -a
 ```
 
-也可以使用
+Vous pouvez également utiliser
 
 ```cmd
 ls -al
 ```
 
-可以直接列出資料夾內的內容
+Vous pouvez lister directement le contenu d'un dossier
 
 ```cmd
 ls Downloads
 ```
 
-像是在 home 底下, 直接列出 Downloads 內容
+Comme dans home, Lister directement le contenu des téléchargements de Downloads
 
 ![alt tag](https://i.imgur.com/Dal7aSn.png)
 
@@ -196,13 +196,13 @@ sort
 ls -S
 ```
 
-將輸出結果 stdout 寫到文件裡, 可使用 redirect `>` (螢幕上不會顯示)
+Ecrire la sortie stdout dans un fichier, vous pouvez utiliser la redirection `>` (non montré à l'écran)
 
 ```cmd
 ls -lS > file.txt
 ```
 
-計算路徑底下有多少個檔案
+Calculer combien de fichiers se trouvent dans le dossier
 
 ```cmd
 ls | wc -l
@@ -212,9 +212,9 @@ ls | wc -l
 
 * [Youtube Tutorial - Linux 指令教學 - sort , uniq](https://youtu.be/5G9gRLPBW_U)
 
-顧名思義就是排序.
+Comme son nom l'indique, il s'agit de séquencer.
 
-假設有一個 `test.txt` 如下,
+En supposant qu'il existe un `test.txt` comme suit,
 
 ```txt
 c 2
@@ -226,7 +226,7 @@ j 3
 k 12
 ```
 
-預設是看最前面排序.
+Par défaut, on prend le début de la liste..
 
 ```cmd
 ❯ sort test.txt
@@ -239,7 +239,7 @@ k 12
 y 33
 ```
 
-反向可以加上 `-r`, `--reverse` reverse the result of comparisons
+L'inversion peut être réalisée `-r`, `--reverse` inverser le résultat des comparaisons
 
 ```cmd
 ❯ sort -r test.txt
@@ -252,13 +252,13 @@ b 111
 a 4
 ```
 
-也可以搭配其他指令使用, 像是
+Elle peut également être utilisée avec d'autres commandes, telles que
 
 ```cmd
 cat test.txt | sort
 ```
 
-指定欄位下去排序.
+Indiquez les colonnes à trier.
 
 ```cmd
 ❯ sort -n -k 2 test.txt
@@ -271,19 +271,19 @@ e 44
 b 111
 ```
 
-`-n`, `--numeric-sort` 代表使用數字下去排序.
+`-n`, `--numeric-sort` signifie utiliser le tri numérique.
 
-`-k`, `--key=KEYDEF` 代表指定欄位排序. 這邊指定第二個欄位.
+`-k`, `--key=KEYDEF` signifie que le champ est trié. Ceci spécifie le deuxième champ.
 
-這邊多補充一下, 如果是像上面空格格開, 不用特別設定(因為預設),
+En outre, s'il s'agit d'une case vide comme celle ci-dessus, il n'est pas nécessaire de la configurer (car elle est par défaut),
 
-如果今天你的文件如下, 是用逗點隔開的,
+Si votre document d'aujourd'hui se présente comme suit, il est séparé par des virgules,
 
-需要多加上 `-t` 設定你的分隔符號.
+Vous devez ajouter plus de `-t` pour définir votre séparateur.
 
-`-t`, `--field-separator=SEP` use SEP instead of non-blank to blank transition.
+`-t`, `--field-separator=SEP` utiliser le SEP au lieu de la transition de non-blanc à blanc.
 
-`test2.txt` 如下,
+`test2.txt` comme suit,
 
 ```txt
 c,2
@@ -306,32 +306,32 @@ e,44
 b,111
 ```
 
-透過 `-t` 設定使用 `,` 當作分隔符號.
+Utilisez `,` comme séparateur avec le paramètre `-t`.
 
 ## uniq
 
 * [Youtube Tutorial - Linux 指令教學 - sort , uniq](https://youtu.be/5G9gRLPBW_U)
 
-用來找出(刪除)重複的行.
+Ceci est utilisé pour trouver (supprimer) les lignes en double.
 
 ```cmd
 ❯ uniq --help
 ......
-Filter adjacent matching lines from INPUT (or standard input),
-writing to OUTPUT (or standard output).
+Filtrer les lignes adjacentes correspondantes de INPUT (or standard input),
+écriture sur la SORTIE (or standard output).
 ......
-Note: 'uniq' does not detect repeated lines unless they are adjacent.
-You may want to sort the input first, or use 'sort -u' without 'uniq'.
+Note : 'uniq' ne détecte pas les lignes répétées à moins qu'elles ne soient adjacentes.
+Vous pouvez vouloir trier l'entrée d'abord, ou utiliser 'sort -u' sans 'uniq'.
 ......
 ```
 
-請注意, 使用 `uniq` 的時候, 請先執行 `sort`.
+Veuillez noter que lorsque vous utilisez `uniq`, vous devez d'abord exécuter `sort`.
 
-因為 `uniq` 是去找鄰近的行做比較而已, 所以你必須先 `sort` 再進行 `uniq`.
+Comme `uniq' est juste une comparaison de lignes voisines, vous devez d'abord `sort' et ensuite `uniq'.
 
-( 上面說明中也有說 `uniq` 不偵測重複的行, 除非他們是鄰近的 )
+(Il est également dit dans la description ci-dessus que `uniq' ne détecte pas les lignes dupliquées à moins qu'elles ne soient adjacentes).
 
-範例 `test.txt` 如下,
+L'exemple `test.txt` est le suivant,
 
 ```txt
 11
@@ -346,7 +346,7 @@ You may want to sort the input first, or use 'sort -u' without 'uniq'.
 33
 ```
 
-如果你沒有先執行 `sort`, 直接執行 `uniq`, 你會發現是無效的,
+Si vous exécutez `uniq` sans exécuter `sort` d'abord, vous constaterez que cela ne fonctionne pas,
 
 ```cmd
 ❯ uniq test.txt
@@ -362,7 +362,7 @@ You may want to sort the input first, or use 'sort -u' without 'uniq'.
 33
 ```
 
-將檔案內重複的行去掉,
+Supprime les lignes dupliquées du fichier,
 
 ```cmd
 ❯ sort test.txt | uniq
@@ -373,7 +373,7 @@ You may want to sort the input first, or use 'sort -u' without 'uniq'.
 66
 ```
 
-也可以使用 `sort -u` 代替,
+Vous pouvez aussi utiliser `sort -u` à la place,
 
 ```cmd
 ❯ sort -u test.txt
@@ -384,9 +384,9 @@ You may want to sort the input first, or use 'sort -u' without 'uniq'.
 66
 ```
 
-`-u`, `--unique` with -c, check for strict ordering.
+`-u`, `--unique` avec -c, vérifier l'ordre strict.
 
-計算重複行出現的次數,
+Comptez le nombre de fois qu'une ligne se répète,
 
 ```cmd
 ❯ sort test.txt | uniq -c
@@ -397,15 +397,15 @@ You may want to sort the input first, or use 'sort -u' without 'uniq'.
       3 66
 ```
 
-`-c`, `--count` prefix lines by the number of occurrences.
+`-c', `--compte' les lignes de préfixe par le nombre d'occurrences.
 
-如果你有空白行, 可以加上 sed 指令去掉空白行(如下範例)
+Si vous avez des lignes vides, vous pouvez ajouter la commande sed pour les supprimer (exemple ci-dessous)
 
 ```cmd
 sort test.txt | sed '/^$/d' | uniq -c
 ```
 
-輸出全部重複的行,
+Sortir toutes les lignes dupliquées,
 
 ```cmd
 ❯ sort test.txt | uniq -D
@@ -422,7 +422,7 @@ sort test.txt | sed '/^$/d' | uniq -c
 
 `-D` print all duplicate lines
 
-只輸出重複的行 (只顯示一次),
+Seules les lignes en double sont éditées (affichées une seule fois),
 
 ```cmd
 ❯ sort test.txt | uniq -d
@@ -432,22 +432,22 @@ sort test.txt | sed '/^$/d' | uniq -c
 66
 ```
 
-`-d`, `--repeated` only print duplicate lines, one for each group
+`-d`, `--repeated` n'imprime que les lignes en double, une pour chaque groupe
 
-只輸出沒有重複的行,
+Ne sortir que les lignes qui ne sont pas répétées,
 
 ```cmd
 ❯ sort test.txt | uniq -u
 44
 ```
 
-`-u`, `--unique` only print unique lines
+`-u`, `--unique` n'imprime que les lignes uniques
 
 ## cut
 
-用來擷取部份字元.
+Utilisé pour capturer certains des caractères.
 
-範例 `test.txt`
+Exemple `test.txt`
 
 ```text
 123
@@ -456,7 +456,7 @@ sort test.txt | sed '/^$/d' | uniq -c
 890
 ```
 
-擷取第2個到第3個字元
+Récupérer le 2ème ou 3ème caractère
 
 ```cmd
 ❯ cut -c 2-3 test.txt
@@ -466,9 +466,9 @@ sort test.txt | sed '/^$/d' | uniq -c
 90
 ```
 
-`-c`, `--characters=LIST`  select only these characters
+`-c`, `--characters=LIST` ne sélectionne que ces caractères
 
-擷取第2個到最後一個字元
+Récupérer l'avant-dernier caractère
 
 ```cmd
 ❯ cut -c 2- test.txt
@@ -478,7 +478,7 @@ sort test.txt | sed '/^$/d' | uniq -c
 90
 ```
 
-擷取第1個和第3個字元
+Récupérer les 1er et 3ème caractères
 
 ```cmd
 ❯ cut -c 1,3 test.txt
@@ -488,7 +488,7 @@ sort test.txt | sed '/^$/d' | uniq -c
 80
 ```
 
-排除第2個字元
+Exclure le 2ème caractère
 
 ```cmd
 ❯ cut -c 2 test.txt --complement
@@ -498,19 +498,19 @@ sort test.txt | sed '/^$/d' | uniq -c
 80
 ```
 
-`--complement` complement the set of selected bytes, characters or fields.
+`--complement` complète l'ensemble des octets, caractères ou champs sélectionnés.
 
-(補足其他字元, 意思就是排除指定的字元)
+(Complémentaire à d'autres caractères, c'est-à-dire excluant le caractère spécifié)
 
 ## tee
 
-同時將輸出結果 stdout 寫到文件裡以及顯示在螢幕上 (直接覆寫掉 file.txt)
+Écrire également la sortie stdout dans un fichier et l'afficher à l'écran (écraser directement file.txt)
 
 ```cmd
 ls | tee file.txt
 ```
 
-同時將輸出結果 stdout 寫到文件裡以及顯示在螢幕上 (附加在 file.txt 之後)
+Écrit également la sortie stdout dans un fichier et l'affiche à l'écran (en annexe de file.txt)
 
 ```cmd
 ls | tee -a file.txt
@@ -518,13 +518,13 @@ ls | tee -a file.txt
 
 ##  touch
 
-很常使用拿來建立空檔案
+Très souvent utilisé pour créer des fichiers vides
 
 ```cmd
 touch file.py
 ```
 
-也可以透過這個方式一次建立多個空檔案 ( `file1.py` ~ `file1.py`)
+Il est également possible de créer plusieurs fichiers vides de cette façon ( `file1.py` ~ `file1.py`)
 
 ```cmd
 touch file{1..10}.py
@@ -532,7 +532,7 @@ touch file{1..10}.py
 
 ## su
 
-切換不同的 user
+Changement d'utilisateur
 
 ```cmd
 su <username>
@@ -540,64 +540,64 @@ su <username>
 
 ## sudo
 
-增加新的 user
+Ajout d'un nouvel utilisateur
 
 ```cmd
 sudo useradd <username>
 ```
 
-設定 user 的 password
+Définir le mot de passe de l'utilisateur
 
 ```cmd
 sudo passwd <username>
 ```
 
-刪除 user
+Suppression de l'utilisateur
 
 ```cmd
 sudo userdel <username>
 ```
 
-增加新的 group
+Ajout d'un nouveau groupe
 
 ```cmd
 sudo groupadd <groupname>
 ```
 
-刪除 group
+Suppression du groupe
 
 ```cmd
 sudo groupdel <groupname>
 ```
 
-增加 user 到 group 中
+Ajouter un utilisateur au groupe
 
 ```cmd
 sudo usermod -g <groupname> <username>
 ```
 
-查看所有 user
+Afficher tous les utilisateurs
 
 ```cmd
 sudo cat /etc/passwd
 ```
 
-查看所有 group
+Afficher tous les groupes
 
 ```cmd
 sudo cat /etc/group
 ```
 
-不知道大家有沒有這個困擾, 就是每次都要打上自己的密碼很麻煩:expressionless:
+Je ne sais pas si vous avez ce problème, mais c'est pénible de devoir taper son mot de passe à chaque fois.:expressionless:
 
-這邊提供一個方法給各位, 但還是要小心一點, 就是 `-S` 這個指令.
+Voici une façon de le faire, mais attention, avec la commande `-S'.
 
 ```text
-The -S (stdin) option causes sudo to read the password from
-the standard input instead of the terminal device.
+L'option -S (stdin) permet à sudo de lire le mot de passe depuis l'entrée
+l'entrée standard au lieu du périphérique terminal.
 ```
 
-簡單說, 就是先打上你自己的密碼, 這樣就不用再打一次了, 以下舉例
+Pour faire simple, tapez d'abord votre propre mot de passe pour ne pas avoir à le retaper, voici un exemple
 
 ```cmd
 echo YourPwd | sudo -S groupadd <groupname>
@@ -607,71 +607,71 @@ echo YourPwd | sudo -S groupadd <groupname>
 
 [Youtube Tutorial - Linux 教學 - chmod](https://youtu.be/qwk4Pzgtf2I)
 
-chmod 為 change mode 的縮寫.
+chmod est une abréviation de change mode.
 
-改變檔案權限
+Modifier les autorisations de fichiers
 
 ```cmd
 chmod XXX filename
 ```
 
-舉個例子，將權限設為 rw-rw-r--，
+Par exemple, définissez l'autorisation à rw-rw-r--.
 
-|  身份  	| 權限 	|   分數   	|
+|  Identité | Droits 	|   Note   	|
 |:------:	|:----:	|:--------:	|
 |  owner 	|  rw- 	| 4+2+0 =6 	|
 |  group 	|  rw- 	| 4+2+0 =6 	|
-| others 	|  r-- 	| 4+0+0 =4 	|
+|  others 	|  r-- 	| 4+0+0 =4 	|
 
 ```cmd
 chmod 664 README.md
 ```
 
-常用修改權限的指令
+Commandes couramment utilisées pour modifier les permissions
 
 ```cmd
-# 只有擁有者 owner 有讀和寫的權限
+# Seul le propriétaire a un accès en lecture et en écriture
 sudo chmod 600 ×××
 ```
 
 ```cmd
-# 擁有者 owner 有讀和寫的權限，group，others 只有讀的權限
+# Le propriétaire a un accès en lecture et en écriture, le groupe et les autres ont un accès en lecture seulement.
 sudo chmod 644 ×××
 ```
 
 ```cmd
-# 擁有者 owner 有讀和寫以及執行的權限
+# Le propriétaire a des privilèges de lecture, d'écriture et d'exécution.
 sudo chmod 700 ×××
 ```
 
 ```cmd
-# 擁有者 owner，group，others 都有讀和寫的權限
+# Propriétaires : le propriétaire, le groupe, les autres ont un accès en lecture et en écriture.
 sudo chmod 666 ×××
 ```
 
 ```cmd
-# 擁有者 owner，group，others 都有讀和寫以及執行的權限，基本上就是全開
+# Les propriétaires, le groupe et les autres ont tous des droits de lecture, d'écriture et d'exécution.
 sudo chmod -R 777 xxx
 ```
 
-`-r` `-R` 代表 recursive 遞迴 ( 目錄底下所以檔案包含子目錄都會變更 )，
+`-r` `-R` représente un retour en arrière récursif (tous les fichiers sous le répertoire contiennent des sous-répertoires qui seront modifiés).
 
-還有一種方法是使用 符號 來改變權限，
+Une autre façon de modifier les autorisations est d'utiliser des symboles.
 
-在介紹之前，先看下方的表格 :wink:
+Avant de l'introduire, consultez le tableau ci-dessous :wink:
 
-|       | u = user  |          |             |              |
-|-------|-----------|----------|-------------|--------------|
-|       | g = group | + (增加) | r = read    |              |
-| chmod |           | - (移除) | w = write   | 檔案或資料夾 |
-|       | o = other | = (設定) | x = execute |              |
-|       | a = all   |          |             |              |
+|       | u = user  |          |             |                    |
+|-------|-----------|----------|-------------|--------------------|
+|       | g = group | + (增加) | r = read    |                    |
+| chmod |           | - (移除) | w = write   | Fichier ou dossier |
+|       | o = other | = (設定) | x = execute |                    |
+|       | a = all   |          |             |                    |
 
-舉個例子，將 hello 權限設為 rw-rw-r--，
+Par exemple, définissez la permission hello à rw-rw-r--.
 
-|  擁有者(u)  	| 所屬群組(g) 	|   其他使用者(o)   	|
-|:------:	|:----:	|:--------:	|
-|  rw- 	|  rw- 	| r-- 	|
+|  Propriétaire(u) | Groupe(g) |   Autres utilisateurs(o) |
+|:-------:  	|:-------:	|:----------------------:   |
+|  rw-      	|  rw- 	| r--                   	|
 
 ```cmd
 chmod ug=rw,o=r hello
@@ -679,7 +679,7 @@ chmod ug=rw,o=r hello
 
 ![alt tag](https://i.imgur.com/QgNuNel.png)
 
-再舉個例子，將 hello 權限設為 rwxr-xr–-，
+Comme autre exemple, définissez la permission hello à rwxr-xr--.
 
 ```cmd
 chmod u=rwx,g=rx,o=r hello
@@ -687,7 +687,7 @@ chmod u=rwx,g=rx,o=r hello
 
 ![alt tag](https://i.imgur.com/WlX8wPL.png)
 
-接著假設我希望把 可執行的權限(x) 加上去 (全部人及群組都加上)
+Ensuite, supposons que je veuille ajouter les permissions de l'exécutable (x) (pour toutes les personnes et tous les groupes)
 
 ```cmd
 chmod a+x hello
@@ -695,39 +695,39 @@ chmod a+x hello
 
 ![alt tag](https://i.imgur.com/KLiwPXX.png)
 
-移除所有人 可執行的權限(x)
+Supprimer tous les privilèges d'exécution (x)
 
 ```cmd
 chmod a-x hello
 ```
 
-你會發現大家的 可執行的權限(x) 都消失了
+Vous remarquerez que les privilèges exécutables (x) de chacun ont disparu.
 
 ![alt tag](https://i.imgur.com/O8gh3Is.png)
 
-相信經過這一連串的練習，大家肯定了解了，
+Je suis sûr qu'après cette série d'exercices, vous comprendrez que
 
-如果不懂，多看幾遍:satisfied:
+Si vous ne comprenez pas, relisez-le plusieurs fois.:satisfied:
 
 ## chown
 
-修改檔案或目錄的擁有者與群組。
+Modifier les propriétaires et les groupes de fichiers ou de répertoires。
 
 修改檔案或目錄的擁有者
 
 ```cmd
-# 將 README.md ( 檔案 ) 的擁有者改為 twtrubiks ( 使用者 )
+# Changez le propriétaire de README.md (fichier) en twtrubiks (utilisateur).
 chown twtrubiks README.md
 ```
 
-修改檔案或目錄的群組
+Groupes qui modifient des fichiers ou des répertoires
 
 ```cmd
-# 將 README.md ( 檔案 ) 的群組改為 twtrubiksgroup ( 群組 )
+# Changez le groupe de README.md (fichier) en twtrubiksgroup (groupe).
 chown :twtrubiksgroup README.md
 ```
 
-同時修改檔案或目錄的擁有者和群組
+Changer le propriétaire et le groupe d'un fichier ou d'un répertoire en même temps
 
 ```cmd
 # 將 README.md ( 檔案 ) 的擁有者改為 twtrubiks ( 使用者 ) 以及
@@ -739,9 +739,9 @@ chown twtrubiks:twtrubiksgroup README.md
 
 [Youtube Tutorial - Linux 指令教學 - ln (Symbolic Link)](https://youtu.be/jdZsO2GAf2I)
 
-有兩種, 分別為 hard link 和 Symbolic link ( soft link ),
+Il en existe deux types,  hard link , et Symbolic link ( soft link ),
 
-先介紹 hard link，注意，hard link not allowed for directory。
+Première introduction hard link，Note，hard link non autorisé pour les répertoires。
 
 ```cmd
 ln /home/twtrubiks/Downloads/odoo-git/README.md
@@ -749,13 +749,13 @@ ln /home/twtrubiks/Downloads/odoo-git/README.md
 
 ![alt tag](https://i.imgur.com/ioJXBRw.png)
 
-hard link 特性為不管刪除哪一個檔案，檔案都會被保留。除非你把最後一個檔案也刪除，
+La fonction de hard link signifie que le fichier sera conservé, quel que soit le fichier supprimé. à moins que vous ne supprimiez aussi le dernier fichier.
 
-換個方式說，一個檔案的 hard link 和本來的檔案其實沒有任何實質上的區別。
+En d'autres termes, il n'y a pas de différence réelle entre hard link d'un fichier et le fichier original.
 
-hard link 不允許資料夾，只允許檔案。
+Les liens physiques (hard link) n'autorisent pas les dossiers, seulement les fichiers.
 
-symbolic link，也稱 soft link，基本上它類似於 Windows 中的捷徑:smile:
+Un lien symbolique, également connu sous le nom de soft link, est un raccourci similaire à celui de Windows.:smile:
 
 ```cmd
 ln -s /home/twtrubiks/Downloads/odoo-git/ dir-link
@@ -763,15 +763,15 @@ ln -s /home/twtrubiks/Downloads/odoo-git/ dir-link
 
 ![alt tag](https://i.imgur.com/JGhlQZd.png)
 
-當某個檔案的的本體被刪除後，它的 symbolic link 就無法讀取到這個檔案了，
+Lorsque le corps d'un fichier est supprimé, son lien symbolique ne sera pas en mesure de lire le fichier.
 
-一個檔案的 symbolic link 和檔案的本體是不同的兩個東西。
+Le lien symbolique d'un fichier et le corps du fichier sont deux choses différentes.
 
-symbolic link 允許檔案和資料夾。
+Le lien symbolique permet pour les fichiers et les dossiers.
 
 ## zip unzip
 
-zip 3.0 已經會保存檔案的 permissions and ownership.
+zip 3.0 enregistre déjà les permissions et la propriété des fichiers.
 
 ```cmd
 sudo apt-get install zip unzip
@@ -780,18 +780,18 @@ sudo apt-get install zip unzip
 zip
 
 ```cmd
-zip -r <壓縮後的檔名> <壓縮的檔案>
+zip -r <nom du fichier après compression> <fichier compressé>.
 zip -r file.zip file
 ```
 
 unzip
 
 ```cmd
-unzip <解壓縮的檔案> -d <解壓縮的目標資料夾>
+dézipper <fichier dézippé> -d <dossier cible dézippé>
 unzip file.zip -d zip_extract
 ```
 
-如果希望直接解壓縮到當前的目錄，可以直接使用 `.`
+Si vous souhaitez décompresser directement dans le répertoire courant, vous pouvez utiliser l'option `. `
 
 ```cmd
 unzip file.zip -d .
@@ -801,13 +801,13 @@ unzip file.zip -d .
 
 tar **會**保存檔案的 permissions and ownership.
 
-壓縮 `.tar` format
+Compression `.tar` format
 
 ```cmd
 tar cvf filename.tar source-folder
 ```
 
-解壓縮 `.tar` format
+Décompression `.tar` format
 
 ```cmd
 tar xvf filename.tar
@@ -819,13 +819,13 @@ tar xvf filename.tar
 sudo apt-get install unrar
 ```
 
-將 filename.rar 解壓縮到目錄底下
+Extraire filename.rar au fond du répertoire
 
 ```cmd
 unrar e filename.rar
 ```
 
-列出 filename.rar 的資料
+Lister les données pour filename.rar
 
 ```cmd
 unrar l filename.rar
@@ -839,19 +839,19 @@ unrar t filename.rar
 
 ## wget
 
-下載工具
+Outils de téléchargement
 
 ```cmd
 sudo apt-get install wget
 ```
 
-下載 URL 指令
+Téléchargez l'URL de commande
 
 ```cmd
 wget http://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
 ```
 
-指定檔名，請加上 `-O`
+Spécifiez le nom du fichier, ajoutez `-O`.
 
 ```cmd
 wget -O wget.tar.gz http://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
@@ -859,11 +859,11 @@ wget -O wget.tar.gz http://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
 
 ## scp
 
-全名為 Securely Copy,
+Le nom complet est Securely Copy,
 
-這個方法適用於 Linux 和 Linux 之間互傳檔案，也適用於 Linux 和 Windows 之間互傳檔案，
+Cette méthode convient au transfert de fichiers entre Linux et Linux, ainsi qu'entre Linux et Windows.
 
-假設，Linux ip 為 192.168.56.101，查看 ip 指令如下，
+En supposant que l'ip de Linux est 192.168.56.101, vérifiez la commande ip comme suit
 
 ```cmd
 ip addr show
@@ -871,27 +871,27 @@ ip addr show
 
 ![alt tag](https://i.imgur.com/AlAeRoD.png)
 
-確認有安裝 openssh-server
+Confirmez que openssh-server est installé
 
 ```cmd
 sudo apt-get install openssh-server
 ```
 
-使用 `ssh localhsot` 測試
+Utilisez `ssh localhsot` pour tester
 
 ![alt tag](https://i.imgur.com/nYo5NNn.png)
 
-一切正常之後。
+Après que tout soit en ordre.
 
-從 Windows 上傳送檔案給 Linux ( ip 為 192.168.56.101 )，
+Envoyez le fichier de Windows à Linux (ip 192.168.56.101).
 
-在 Windows 上的 cmd 執行以下指令，
+Exécutez la commande suivante à partir de cmd sous Windows.
 
 ```cmd
-scp -rp 檔案 linux的使用者@ip:目標路徑
+scp -rp fichier utilisateur@ip:chemin cible de linux
 ```
 
-`-r` 代表 recursive.
+`-r` signifie récursif.
 
 `-p` 代表 保存原始檔案的內容 (Preserves modification).
 
@@ -901,38 +901,38 @@ scp -rp file twtrubiks@192.168.56.101:/home/twtrubiks
 
 ![alt tag](https://i.imgur.com/0nBrt00.png)
 
-接下來，從 Linux 上拿檔案回 Windows
+Ensuite, récupérez les fichiers de Linux vers Windows.
 
 ```cmd
-scp -P 22 linux的使用者@ip:目標路徑 存放的目標位置
+scp -P 22 linux user@ip:target path Emplacement de destination à stocker
 ```
 
-`-P` 代表明確指定連接的 port (remote host).
+`-P` représente le port (hôte distant) qui est explicitement spécifié.
 
 ```cmd
 scp -P 22 twtrubiks@192.168.56.101:/home/twtrubiks/linux_file.md .
 ```
 
-`.` 代表當下目前路徑 ( 也可以指定其他的路徑 )。
+`. ` représente le chemin actuel (d'autres chemins peuvent également être spécifiés).
 
 ![alt tag](https://i.imgur.com/aMnNlGI.png)
 
-Linux 之間的傳送也是相同的道理:smile:
+Il en va de même pour les transferts entre Linux:smile:
 
 ## mv
 
 [Youtube Tutorial - Linux 指令教學 - mv](https://youtu.be/VhyzaEaGnL8)
 
-move ( rename ) files，**移動檔案**或是**重新命名檔案**。
+déplacer (renommer) des fichiers, **déplacer des fichiers** ou **renommer des fichiers**.
 
-修改 資料夾 or 檔案 檔名
+Modifier le nom d'un dossier ou d'un fichier
 
 ```cmd
 mv folder folder-new
 mv README.md README_MV.md
 ```
 
-移動檔案
+Déplacement de fichiers
 
 ```cmd
 mv README.md /examples
@@ -942,15 +942,15 @@ mv README.md /examples
 mv file.md example/
 ```
 
-其他的參數說明(參數可以多個一起使用)，
+D'autres paramètres sont décrits (les paramètres peuvent être utilisés en combinaison).
 
-互動模式 , CLI 會詢問你是否 overwriting files
+En mode interactif, le CLI vous demandera si vous écrasez des fichiers.
 
 ```cmd
 mv -i source_file path_to_destination/
 ```
 
-只更新來源資料夾和目的地不同的檔案
+Mise à jour uniquement des fichiers dont les dossiers source et destination sont différents
 
 ```cmd
 mv -u source_file path_to_destination/
@@ -960,37 +960,37 @@ mv -u source_file path_to_destination/
 
 [Youtube Tutorial - Linux 指令教學 - rm](https://youtu.be/JqKjBZMXn_I)
 
-刪除檔案
+Supprimer le fichier
 
 ```cmd
 rm file.md
 ```
 
-刪除資料夾
+Supprimer le dossier
 
 ```cmd
 rm -rf mydir
 ```
 
-`-r` 代表使用 recursive 遞迴刪除。 ( 會將目錄內所有檔案刪除 )
+`-r` signifie utiliser la suppression récursive récursive. (tous les fichiers du répertoire seront supprimés)
 
-`-f` 代表強制刪除 ( 不會跳出警告 )。
+`-f` signifie suppression obligatoire (aucun avertissement ne s'affiche).
 
-或是使用 rmdir 指令，
+ou en utilisant la commande rmdir, le fichier
 
 ```cmd
 rmdir mydir_name
 ```
 
-不過要注意，被移除的資料夾裡面必須是空的，否則回無法移除。
+Toutefois, veuillez noter que le dossier supprimé doit être vide, sinon il ne sera pas supprimé.
 
-刪除特定的副檔名，
+Supprimer le nom du sous-fichier spécifique.
 
 ```cmd
 rm -f *.zip
 ```
 
-也可以這樣
+Cela est également possible
 
 ```cmd
 rm -f *demo.zip
@@ -1000,56 +1000,56 @@ rm -f *demo.zip
 
 [Youtube Tutorial - Linux 指令教學 - cp](https://youtu.be/ORl0YUGY728)
 
-複製資料夾
+Dossiers de reproduction (copie)
 
 ```cmd
 cp -r path_to_source/ path_to_destination/
 ```
 
-`-r` `-R` 代表 recursive 遞迴，
+`-r` `-R` signifie diffusion récursive.
 
-如果 path_to_destination 不存在，會自動建立 ;
+Si le hemin_vers_destination n'existe pas, il sera créé automatiquement ;
 
-如果存在，則直接使用。
+S'il est présent, utilisez-le directement.
 
-只想複製資料夾底下的全部內容，
+Je veux juste copier le contenu entier du fond du dossier.
 
 ```cmd
 cp -r dir_1/. dir_2
 cp -r dir_1/. .
 ```
 
-`.` 代表資料夾內的東西，也可以代表目前所在的地方。
+`. ` représente ce qui se trouve dans le dossier et peut également représenter l'endroit où il se trouve actuellement.
 
-有時候會希望複製時可以保存當時的權限，所以會加上 `-p`。
+Parfois, vous voulez sauvegarder les permissions actuelles lors de la copie, alors vous ajoutez `-p'.
 
 ```cmd
 cp -r --preserve=all path_to_source/ path_to_destination/
 ```
 
-`-p` `--preserve` 代表一同複製當下的權限以及擁有者之類的。
+`-p` `--preserver` signifie copier ensemble l'autorité actuelle et le propriétaire.
 
-其他的參數說明(參數可以多個一起使用)，
+D'autres paramètres sont décrits (les paramètres peuvent être utilisés en combinaison).
 
-互動模式 , CLI 會詢問你是否 overwriting files
+En mode interactif, le CLI vous demandera si vous écrasez des fichiers.
 
 ```cmd
 cp -i source_file path_to_destination/
 ```
 
-不詢問 , 直接 overwriting files
+Pas de questions , Direct écrasement de fichiers
 
 ```cmd
 cp -n source_file path_to_destination/
 ```
 
-只更新來源資料夾和目的地不同的檔案
+Mise à jour uniquement des fichiers dont les dossiers source et destination sont différents
 
 ```cmd
 cp -u source_file path_to_destination/
 ```
 
-印出資訊
+Imprimer l'information
 
 ```cmd
 cp -v source_file path_to_destination/
@@ -1059,7 +1059,7 @@ cp -v source_file path_to_destination/
 
 查詢檔案
 
-找檔案或資料夾
+Trouver un fichier ou un dossier
 
 ```cmd
 sudo find / -name "dir-name"
@@ -1067,7 +1067,7 @@ sudo find / -name "file-name"
 sudo find / -name "*.conf"
 ```
 
-在當前目錄下尋找檔名為 README.md
+Recherchez le fichier README.md dans le répertoire courant.
 
 ```cmd
 find . -name README.md
@@ -1075,19 +1075,19 @@ find . -name README.md
 
 ## source
 
-source 指令通常用於剛修改的初始化文件, 讓它立刻生效, 不必重開機(或登出再登入),
+La commande source est généralement utilisée lorsque vous venez de modifier un fichier d'initialisation, afin qu'il prenne effet immédiatement sans avoir à redémarrer (ou à se déconnecter et se reconnecter),
 
-以下例子,
+Voici quelques exemples,
 
 ```cmd
 source demo.sh
 ```
 
-在當下的 shell 內去讀取, 執行 demo.sh, 而 demo.sh **需要**有執行權限
+Lisez-le dans le shell actuel, exécutez demo.sh, et demo.sh **doit** avoir l'autorisation d'exécuter.
 
-(執行權限代表 `chmod +x demo.sh`)
+(Le privilège d'exécution correspond à `chmod +x demo.sh`)
 
-source 指令也可以簡寫為 `.`
+La directive source peut également être abrégée en `. `
 
 ```cmd
 . demo.sh
@@ -1095,9 +1095,9 @@ source 指令也可以簡寫為 `.`
 
 ## sh or bash
 
-使用 `sh` or `bash`執行時, **不需要**有執行權限.
+Lorsqu'il est exécuté avec `sh` ou `bash`, **pas besoin** d'avoir les privilèges d'exécution.
 
-(執行權限代表 `chmod +x demo.sh`)
+(Le privilège d'exécution correspond à `chmod +x demo.sh`)
 
 ```cmd
 sh demo.sh
@@ -1106,11 +1106,11 @@ bash demo.sh
 
 ## ./
 
-直接使用 `./` 執行, **需要**有執行權限.
+Utilisez `. /` à exécuter, **exige** la permission d'exécuter.
 
-(執行權限代表 `chmod +x demo.sh`)
+(Le privilège d'exécution correspond à `chmod +x demo.sh`)
 
-當你執行
+Lorsque vous exécutez
 
 ```cmd
 ./demo.sh
@@ -1119,7 +1119,7 @@ chmod +x demo.sh
 ./demo.sh
 ```
 
-你會發現跳出類似訊息 `bash: ./demo.sh: Permission denied`,
+Vous verrez un message comme `bash : . /demo.sh : Permission refusée`,
 
 修正方法如下,
 
@@ -1130,9 +1130,9 @@ chmod +x demo.sh
 
 ## where
 
-尋找路徑，
+Trouvez un chemin.
 
-舉例，尋找 python3 路徑
+Par exemple, trouvez le chemin d'accès à python3
 
 ```cmd
 where python3
@@ -1142,19 +1142,19 @@ whereis python3
 
 ## tail
 
-顯示檔案最後幾行內容
+Afficher les dernières lignes du fichier
 
 ```cmd
 tail README.md
 ```
 
-一次顯示多個檔案
+Afficher plusieurs fichiers à la fois
 
 ```cmd
 tail README_1.md README_2.md
 ```
 
-指定顯示檔案最後 N 行內容
+Spécifier pour afficher les N dernières lignes du fichier
 
 ```cmd
 tail -n 5 README.md
@@ -1164,7 +1164,7 @@ tail -n 5 README.md
 tail README.md -n 5
 ```
 
-持續顯示更新內容，通常使用在 server 或看 log
+Affichage continu des mises à jour, généralement sur le serveur ou en regardant les journaux.
 
 ```cmd
 tail -f README.md
@@ -1172,15 +1172,15 @@ tail -f README.md
 
 ## head
 
-既然有 tail, 肯定會有 head:smile:
+S'il y a une queue, il doit y avoir une tête.:smile:
 
 ```cmd
 head text.py
 ```
 
-預設顯示前 10 行資訊.
+Les 10 premières lignes d'informations sont affichées par défaut.
 
-可以透過 `-n` 指令指定要顯示前 `n` 行
+Vous pouvez spécifier que les `n` premières lignes doivent être affichées à l'aide de la commande `-n`.
 
 ```cmd
 head -n 3 text.py
@@ -1188,7 +1188,7 @@ head -n 3 text.py
 
 ## file
 
-檢查檔案類型
+Vérifier le type de fichier
 
 ```cmd
 file README.md
@@ -1196,19 +1196,19 @@ file README.md
 
 ## cat
 
-將檔案內容顯示在 terminal 上
+Afficher le contenu du fichier sur le terminal
 
 ```cmd
 cat README.md
 ```
 
-顯示行數
+Montrer les lignes
 
 ```cmd
 cat -n README.md
 ```
 
-cat 也可以寫入檔案
+cat peut également être écrit dans un fichier
 
 ```cmd
 cat <<EOT >> hello_4.txt
@@ -1220,7 +1220,7 @@ EOT
 
 ## clear
 
-clear the terminal screen ， 快捷鍵為 Ctrl+L
+effacer l'écran du terminal ， Les touches de raccourci sont Ctrl+L
 
 ```cmd
 clear
@@ -1229,28 +1229,28 @@ clear
 ## grep
 
 ```cmd
-# 格式
+# Format
 grep match_pattern file_name
 ```
 
 ```cmd
-# 格式
+# Format
 grep "search name" README.md
 ```
 
-也可以一次搜尋多個檔案
+Vous pouvez également rechercher plusieurs fichiers à la fois
 
 ```cmd
 grep "name" README_1.md README_2.md
 ```
 
-也可以使用 萬用字元 `*`
+Vous pouvez également utiliser le caractère universel `*`.
 
 ```cmd
 grep "print" *.py
 ```
 
-排除某個字元
+Exclusion d'un caractère
 
 ```cmd
 grep -v "match_pattern" README.md
@@ -1259,45 +1259,45 @@ grep -v "match_pattern" README.md
 
 `-v`, `--invert-match` select non-matching lines
 
-搜尋當下目錄資料夾內容
+Rechercher le contenu du répertoire courant
 
 ```cmd
 grep -r "search name" .
 ```
 
-case insensitive case (不區分大小寫)
+case insensitive case (Non sensible à la casse)
 
 ```cmd
 grep -i "name" README_1.md
 ```
 
-顯示行數
+Montrer les lignes
 
 ```cmd
 grep -n "name" README_1.md
 ```
 
-要完全符合 `:80` 才會被撈出來
+Il doit être entièrement conforme à la limite `:80` avant d'être récupéré.
 
 ```cmd
 grep -w ':80' README_1.md
 ```
 
-`-w`, `--word-regexp` 僅比較整個單字.
+`-w`, `--word-regexp` ne comparent que des mots entiers.
 
 ## sed
 
-這個指令可以達到快速搜尋, 取代, 刪除文字,
+Cette commande vous permet de rechercher, remplacer et supprimer rapidement du texte,
 
-sed 主要是針對**行**進行處理, 然後處理的不是原文件, 而是複製出來的文件.
+sed est principalement destiné au traitement **ligne**, et alors ce n'est pas le fichier original qui est traité, mais le fichier copié.
 
-語法
+Langue
 
 ```cmd
-sed -i '/匹配字串/d' textfile
+sed -i '/Chaînes de caractères correspondantes/d' textfile
 ```
 
-`-i` 加上這個才會寫入你的 textfile, 不然只會顯示在 terminal 上.
+Ajoutez ceci à votre fichier texte, sinon il n'apparaîtra que dans le terminal.
 
 刪除 empty lines
 
@@ -1305,55 +1305,55 @@ sed -i '/匹配字串/d' textfile
 sed -i '/^$/d' textfile
 ```
 
-刪除有數字 7 的行數
+Supprimer les lignes avec le numéro 7
 
 ```cmd
 sed -i '/7/d' textfile
 ```
 
-刪除第一到第五行
+Supprimer les lignes 1 à 5
 
 ```cmd
 sed -i '1,5d' textfile
 ```
 
-刪除從 hello1 到 hello2 之間的所有行數
+Supprimer toutes les lignes de hello1 à hello2
 
 ```cmd
 sed -i '/hello1/, /hello2/d' textfile
 ```
 
-替換語法
+Langue de substitution
 
 ```cmd
-sed -i 's/匹配字串/替代字串' textfile
+sed -i 's/matching string/alternate string' fichier texte
 ```
 
-將每行出現的第一個 a 替換成 A
+Remplacez le premier a qui apparaît dans chaque ligne par A
 
 ```cmd
 sed -i 's/a/A' textfile
 ```
 
-將每行出現的全部的 a 替換成 A
+Remplacer toutes les occurrences de a dans chaque ligne par A
 
 ```cmd
 sed -i 's/a/A/g' file
 ```
 
-`g` 代表替換所有匹配字串
+`g` signifie remplacer toutes les chaînes de caractères correspondantes.
 
-只印出有 `test` 的行
+Imprimer seulement les lignes avec `test` dans elles
 
 ```cmd
 sed -n '/test/p' test.txt
 ```
 
-`-n`, `--quiet`, `--silent` suppress automatic printing of pattern space.
+`-n`, `--quiet`, `--silent` suppriment l'impression automatique de l'espace des motifs.
 
 `p` Print the current pattern space.
 
-sed 也可以印出文件指定行數,
+sed peut également imprimer un nombre spécifié de lignes d'un fichier,
 
 ```cmd
 ❯ cat test.txt
@@ -1365,14 +1365,14 @@ sed 也可以印出文件指定行數,
 6
 ```
 
-顯示特定行數, 顯示第 5 行
+Afficher un nombre spécifique de lignes, afficher la ligne 5
 
 ```cmd
 ❯ sed -n 5p test.txt
 5
 ```
 
-顯示第 3 行以及第 5 行
+Afficher la ligne 3 et la ligne 5
 
 ```cmd
 ❯ sed -n -e 3p -e 5p test.txt
@@ -1382,9 +1382,8 @@ sed 也可以印出文件指定行數,
 
 `-e` script, `--expression=script`
 
-add the script to the commands to be executed
-
-顯示第 3 行到第 5 行
+ajouter le script aux commandes à exécuter
+Afficher les lignes 3 à 5
 
 ```cmd
 ❯ sed -n 3,5p test.txt
@@ -1393,7 +1392,7 @@ add the script to the commands to be executed
 5
 ```
 
-顯示第 1 行到第 3 行, 以及第 5行
+Affichage des lignes 1 à 3, et de la ligne 5
 
 ```cmd
 ❯ sed -n -e 1,3p -e 5p test.txt
@@ -1405,13 +1404,13 @@ add the script to the commands to be executed
 
 ## awk
 
-這個指令是一個非常強大的文字分析工具
+Cette commande est un outil d'analyse de texte très puissant
 
-假設今天我們的輸出如下
+Supposons qu'aujourd'hui nous ayons la production suivante
 
 ![alt tag](https://i.imgur.com/GhPq6sZ.png)
 
-把第 2,3,5,9 列輸出
+Colonnes de sortie 2,3,5,9
 
 ```cmd
 ll | awk '{print $2,$3,$5,$9}'
@@ -1419,7 +1418,7 @@ ll | awk '{print $2,$3,$5,$9}'
 
 ![alt tag](https://i.imgur.com/o1exYCq.png)
 
-如果覺得醜, 可以用 printf 來排版
+Si vous trouvez cela moche, vous pouvez utiliser printf pour la mise en page.
 
 ```cmd
 ll | awk '{printf "%-5s %-5s %-5s %-5s\n", $2,$3,$5,$9}'
@@ -1427,25 +1426,25 @@ ll | awk '{printf "%-5s %-5s %-5s %-5s\n", $2,$3,$5,$9}'
 
 ![alt tag](https://i.imgur.com/9RQj28o.png)
 
-接過試著來過濾資料,
+Essayez ensuite de filtrer les données,
 
-把 權限分數(第2列)分數是 2 以及 第3列是 twtrubiks 的取出來
+Retirez ceux dont le score pondéré (colonne 2) est de 2 et la colonne 3 de twtrubiks.
 
 ```cmd
 ll | awk '$2 == "2" && $3 == "twtrubiks" {print $0}'
 ```
 
-`$0` 代表整行的所有內容.
+`$0` représente tout le contenu de la ligne.
 
 ![alt tag](https://i.imgur.com/Il9jGFp.png)
 
-還可以進行統計,
+Des statistiques sont également disponibles,
 
-把 權限分數(第2列) 的分數進行 sum (排除 total)
+Additionner les scores des notes pondérées (colonne 2) (total exclu)
 
-先排除掉第一列是 total 字串的資料,
+Exclure la première colonne de la chaîne totale,
 
-my_sum 是我們定義的變數.
+my_sum est la variable que nous avons définie.
 
 ```cmd
 ll | awk '$1 != "total" {my_sum+=$2} END{print my_sum}'
@@ -1453,44 +1452,44 @@ ll | awk '$1 != "total" {my_sum+=$2} END{print my_sum}'
 
 ![alt tag](https://i.imgur.com/o3yXZnT.png)
 
-也可以撰寫 if 邏輯,
+Vous pouvez également écrire si logique,
 
-把 權限分數(第2列)的分數為 3 的過濾出來,
+Filtrez ceux dont le score pondéré (colonne 2) est de 3,
 
-接著印出目前行數, 以及把第9列的檔案名稱轉為大寫
+Ensuite, imprimez le numéro de la ligne en cours, et mettez le nom du fichier en majuscules dans la colonne 9.
 
 ```cmd
 ll | awk '{if ($2 == "3") print NR, toupper($9)}'
 ```
 
-`NR` current record number in the total input stream.
+`NR` numéro d'enregistrement actuel dans le flux d'entrée total.
 
 ![alt tag](https://i.imgur.com/dzlbMAA.png)
 
-`NF` number of fields in the current record.
+`NF` nombre de champs dans l'enregistrement courant.
 
-範例 `test.txt`
+Exemple `test.txt`
 
 ```cmd
 ❯ cat test.txt
 -rw-rw-r-- 1 twtrubiks twtrubiks 5  4月  2 20:08 a.py
 ```
 
-目前的 field 數量,
+Quantité actuelle du champ,
 
 ```cmd
 ❯ cat test.txt | awk '{print NF}'
 9
 ```
 
-最後一個 field,
+Le dernier champ,
 
 ```cmd
 ❯ cat test.txt | awk '{print $NF}'
 a.py
 ```
 
-顯示第一個 field,
+Afficher le premier champ,
 
 ```cmd
 ❯ cat test.txt | awk '{print $1F}'
@@ -1499,19 +1498,19 @@ a.py
 
 ## mkdir
 
-建立資料夾
+Créer un dossier
 
 ```cmd
 mkdir -p dir1/dir2
 ```
 
-`-p` `--parents` 代表自動建立上層目錄，如果目錄已存在則不會發生錯誤。
+`-p` `--parents` signifie que le répertoire de niveau supérieur est créé automatiquement et qu'aucune erreur ne se produit si le répertoire existe déjà.
 
 ## kill
 
-強制停止程式執行.
+Arrêt forcé de l'exécution du programme.
 
-需要先查到程式的 PID, 使用方法如下,
+Vous devez d'abord trouver le PID du programme, en utilisant la méthode suivante,
 
 ```cmd
 kill -9 PID
@@ -1521,11 +1520,11 @@ kill -9 PID
 
 ## killall
 
-killall 和 kill 的一個差別是可以使用程式名稱,
+Une différence entre killall et kill est que vous pouvez utiliser le nom du programme,
 
-不需要先找到程式的 PID,
+Il n'est pas nécessaire de trouver d'abord le PID du programme,
 
-例如想要強制停止 vlc
+Par exemple, si vous voulez forcer le vlc à s'arrêter
 
 ```cmd
 killall vlc
@@ -1533,7 +1532,7 @@ killall vlc
 
 ## history
 
-歷史輸入的指令
+Instructions pour la saisie historique
 
 ```cmd
 history
@@ -1545,27 +1544,27 @@ history | less
 
 ![alt tag](https://i.imgur.com/0YKqS3Y.png)
 
-假設今天我不想打指令, 可以直接輸入 `!`+ 數字, 會自動執行該指令.
+Supposons que je ne veuille pas taper une commande aujourd'hui, je peux simplement taper ` ! `+ numéro et la commande sera exécutée automatiquement.
 
 ```cmd
 !1848
 ```
 
-再顯示一次最後輸入的指令 (建議加上 sudo)
+Afficher à nouveau la dernière commande saisie (sudo est recommandé)
 
 ```cmd
 !!
 ```
 
-也可以搭配 grep,
+Egalement disponible avec grep,
 
-假如我想要找到歷史輸入過 `git` 的指令, 這時候可以使用以下的指令
+Si je veux trouver l'historique des commandes entrées dans `git`, alors je peux utiliser la commande suivante
 
 ```cmd
 history | grep git
 ```
 
-如果我不想一次顯示全部, 可以再搭配 less
+Si je ne veux pas les montrer tous en même temps, je peux les mélanger et en réduire le nombre.
 
 ```cmd
 history | grep git | less
@@ -1573,42 +1572,42 @@ history | grep git | less
 
 ## echo
 
-在 shell 中印出 shell 的值，
+Imprime la valeur de l'interpréteur de commandes dans l'interpréteur de commandes.
 
-設定 EDITOR
+configuration EDITOR
 
 ```cmd
 export EDITOR=vim
 ```
 
-查看目前的 EDITOR，
+Voir l'actuelle EDITOR，
 
 ```cmd
 echo $EDITOR
 ```
 
-查看目前的 shell，
+Affiche le shell actuel.
 
 ```cmd
 echo $SHELL
 ```
 
-echo 也可以寫入檔案，
+echo peut également être écrit dans un fichier.
 
-方法一
+Méthode 1
 
 ```cmd
 echo "line 1" >> hello_1.txt
 ```
 
-方法二 ( 寫入多行 )
+Méthode 2 (écrire en plusieurs lignes)
 
 ```cmd
 echo "line 1
 line 2" >> hello_2.txt
 ```
 
-方法三 ( 寫入多行 )
+Méthode 3 (écrire en plusieurs lignes)
 
 ```cmd
 {
@@ -1621,25 +1620,25 @@ line 2" >> hello_2.txt
 
 [Youtube Tutorial - Linux 指令教學 - du(Disk Usage)](https://youtu.be/JZZoJnasnHE)
 
-du 這個指令是 Disk Usage 的縮寫,
+La commande du est une abréviation de Disk Usage,
 
-在開始介紹 du 之前, 先來看一個例子,
+Avant de commencer avec du, regardons un exemple,
 
-使用 `ls -l -h` 觀察 debian 資料夾
+Utilisez `ls -l -h` pour voir le dossier debian
 
 ![alt tag](https://i.imgur.com/lXgxQop.png)
 
-但是如果你進到資料夾裡面, 你會發現它明明有 17GB,
+Mais si vous allez dans le dossier, vous verrez qu'il fait 17 Go,
 
-可是為什麼在資料夾外層看的時候卻只有 4KB:question:
+Mais pourquoi n'est-il que de 4 Ko lorsqu'il est vu à l'extérieur du dossier ?:question:
 
 ![alt tag](https://i.imgur.com/eOTKWJj.png)
 
-原因是 `ls -l -h` 不會顯示資料夾實際的大小, 只會顯示所謂的 meta information,
+La raison en est que `ls -l -h` n'affiche pas la taille réelle du dossier, mais seulement les méta-informations,
 
-所以, 如果你要看實際的大小, 比較好的方法是使用接下來要介紹的 `du` 指令:smile:
+Donc, si vous voulez voir la taille réelle, une meilleure façon est d'utiliser la commande `du' qui est décrite ci-dessous:smile:
 
-查看 du 指令說明
+Afficher la description de la commande du
 
 ```cmd
 du --help
@@ -1648,15 +1647,15 @@ du --help
 ![alt tag](https://i.imgur.com/IQLpqnC.png)
 
 ```cmd
--s, --summarize       display only a total for each argument
+-s, --summarize       afficher seulement un total pour chaque argument
                       (Equivalent to -d 0)
 
--h, --human-readable  print sizes in human readable format (e.g., 1K 234M 2G)
+-h, --human-readable  les tailles d'impression dans un format lisible par l'homme (par exemple, 1K 234M 2G)
     --inodes          list inode usage information instead of block usage
 
--c, --total           produce a grand total
+-c, --total           produire un total général
 
--d, --max-depth=N     print the total for a directory (or file, with --all)
+-d, --max-depth=N     affiche le total pour un répertoire (ou un fichier, avec --all)
                       only if it is N or fewer levels below the command
                       line argument;  --max-depth=0 is the same as --summarize
 
@@ -1675,11 +1674,11 @@ du -sh *
 du --summarize --human-readable *
 ```
 
-使用剛剛的那個例子, 在資料夾的外層就能看到實際的資料夾大小
+En utilisant l'exemple que nous venons de montrer, vous pouvez voir la taille réelle du dossier sur l'extérieur du dossier.
 
 ![alt tag](https://i.imgur.com/hHjxXDx.png)
 
-也可以搭配 `-d` 使用, 資料夾的層數, 看下面的例子你就會懂了
+Il peut aussi être utilisé avec `-d`, le nombre de niveaux dans le dossier, comme vous le verrez dans l'exemple suivant
 
 ```cmd
 du -d 2 -h
@@ -1693,25 +1692,25 @@ du -d 2 -h
 
 Shrink or extend the size of each FILE to the specified size.
 
-truncate 指令可以將一個檔案縮小或是增加大小.
+La commande truncate peut réduire ou augmenter la taille d'un fichier.
 
-開始介紹這個指令前, 先來看看適用的情境:smile:
+Avant de commencer avec cette commande, examinons le contexte dans lequel elle est applicable:smile:
 
-有時候我們可能會希望把一個檔案的大小歸 0, 也就是將檔案的內容全部刪除,
+Parfois, nous pouvons souhaiter ramener un fichier à une taille de 0, c'est-à-dire supprimer tout le contenu du fichier,
 
-但是要保留檔案, 這時候就很適合使用這個指令:smirk:
+Mais pour conserver le fichier, c'est le bon moment pour utiliser cette commande:smirk:
 
-那你可能會問我, 為什麼不直接刪除檔案再建立一個一模一樣的就好:question:
+Vous pouvez alors me demander pourquoi je ne supprime pas simplement le fichier et n'en crée pas un identique.:question:
 
-原因很簡單, 在 linux 的世界中, 檔案是有權限的, 所以你還要去注意新建立
+La raison en est simple : dans le monde linux, les fichiers ont des permissions, vous devez donc faire attention aux fichiers nouvellement créés.
 
-出來的檔案, 權限是否和之前的一模一樣( 否而可能會導致錯誤 ), 所以比較簡單
+si le fichier sort avec exactement les mêmes permissions que le précédent (ce qui pourrait conduire à des erreurs dans le cas contraire), c'est donc relativement simple
 
-的方法會是使用 truncate 這個指令, 它將只會清除內容 ( 檔案大小為 0 ),
+La façon de procéder serait d'utiliser la commande truncate, qui n'efface que le contenu (taille du fichier 0),
 
-其餘的都保持原來的狀態。
+Le reste est resté dans son état d'origine.
 
-查看 truncate 指令說明,
+Afficher la description de la commande truncate,
 
 ```cmd
 truncate --help
@@ -1733,9 +1732,9 @@ SIZE may also be prefixed by one of the following modifying characters:
 '/' round down to multiple of, '%' round up to multiple of.
 ```
 
-使用以下的範例來說明,
+Ceci est illustré par l'exemple suivant,
 
-假設現在有一個 `demo.txt` 的檔案 (如下)
+Supposons qu'il existe un fichier `demo.txt` (comme suit)
 
 ![alt tag](https://i.imgur.com/nWoxmhn.png)
 
